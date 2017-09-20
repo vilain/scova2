@@ -1,10 +1,10 @@
-package org.scova.statecoverage;
+package statecoverage;
 
 import java.util.HashSet;
 import java.util.Hashtable;
 import java.util.Set;
 
-import org.scova.statecoverage.Dependencies;
+import statecoverage.Dependencies;
 
 public class InfluenceMap {
 

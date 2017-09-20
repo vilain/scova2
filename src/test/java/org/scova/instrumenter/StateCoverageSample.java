@@ -3,7 +3,8 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 import org.objectweb.asm.util.ASMifier;
-import org.scova.statecoverage.StateCoverage;
+
+import statecoverage.StateCoverage;
 
 
 public class StateCoverageSample {

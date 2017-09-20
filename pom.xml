@@ -62,15 +62,5 @@
 
 	</dependencies>
 
-	<dependencyManagement>
-		<dependencies>
-			<dependency>
-				<groupId>org.ow2.asm</groupId>
-				<artifactId>asm-all</artifactId>
-				<version>5.0.3</version>
-			</dependency>
-		</dependencies>
-	</dependencyManagement>
-
 </project>
 

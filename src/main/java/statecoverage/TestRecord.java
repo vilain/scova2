@@ -1,11 +1,11 @@
-package org.scova.statecoverage;
+package statecoverage;
 
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-import org.scova.statecoverage.InfluenceMap;
+import statecoverage.InfluenceMap;
 
 public class TestRecord {
 	

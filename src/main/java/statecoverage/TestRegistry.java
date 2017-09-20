@@ -1,8 +1,8 @@
-package org.scova.statecoverage;
+package statecoverage;
 
 import java.util.Hashtable;
 
-import org.scova.statecoverage.TestRecord;
+import statecoverage.TestRecord;
 
 public class TestRegistry {
 	

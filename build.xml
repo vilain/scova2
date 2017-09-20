@@ -1,0 +1,101 @@
+<project default="all">
+
+	<property name="project.dir" location="/Users/vilain/Documents/workspace-neon/INE5448-EightPuzzleGame"/>
+	<property name="junit.classpath" value="/Users/vilain/.p2/pool/plugins/org.junit_4.12.0.v201504281640/junit.jar:/Users/vilain/.p2/pool/plugins/org.hamcrest.core_1.3.0.v201303031735.jar"/>
+	
+	<property name="project.output.classpath" location="${project.dir}/scova"/> 
+	<property name="project.output.folder" location="${project.dir}/scova"/> 
+	<property name="project.input.folder" location="${project.dir}/bin"/> 
+	<property name="project.input.classpath" value="${project.dir}/bin:${junit.classpath}"/> 
+	<property name="test.home" location="${project.dir}/tests"/>
+
+   	<path id="dep.classpath">
+   		<fileset dir="deps">
+   			<include name="**/*.jar"/>
+   		</fileset>
+   		<path location="bin"/>
+    </path>
+
+    <target name="clean">
+        <delete dir="bin"/>
+        <mkdir dir="bin" />
+    </target>   
+
+    <echo message="{project.output.classpath}: " />
+    <echo message="${project.output.classpath}"/>
+
+    <echo message="{project.input.classpath}: " />
+    <echo message="${project.input.classpath}"/>
+
+    <echo message="{project.input.folder}: " />
+    <echo message="${project.input.folder}"/>
+
+    <echo message="{project.output.folder}: " />
+    <echo message="${project.output.folder}"/>
+
+    <echo message="{test.home}: " />
+    <echo message="${test.home}"/>
+
+    <pathconvert property="scova.classpath" refid="dep.classpath" />
+    <echo message="${scova.classpath}" />
+
+	<target name="compile" depends="clean">
+        <javac srcdir="src/main/java" destdir="bin" debug="on" encoding="iso-8859-1">
+        	<classpath refid="dep.classpath"/>
+        </javac>
+    </target>
+
+	<target name="instrument-all" depends="compile">
+    	<java classname="org.scova.instrumenter.Main" fork="yes">
+            <arg value="${project.input.folder}"/>
+            <arg value="${project.output.folder}"/>
+
+    		<classpath>
+                <pathelement path="${scova.classpath}"/>
+                
+                <!-- precisa para buscar informações de classe do projeto através de reflexion --> 
+                <pathelement path="${project.input.classpath}"/>
+    		</classpath>
+    	</java>
+    </target>
+
+    <path id="project.output.classpath.id">
+        <pathelement path="${project.output.classpath}"/>
+        <!-- scova lib -->
+        <path refid="dep.classpath" /> 
+    </path>
+
+    <target name="run-batch">
+
+        <junit printsummary="withOutAndErr" fork="yes" showoutput="yes" haltonfailure="off" >
+            <jvmarg value="-Duser.dir=${project.output.folder}"/>
+            <classpath refid="project.output.classpath.id"/>
+            <!-- If test.entry is defined, run a single test, otherwise run all valid tests -->
+            <test name="${test.entry}" todir="${test.reports}" if="test.entry"/>
+            <batchtest todir="${project.output.folder}" unless="test.entry">
+                <fileset dir="${test.home}">
+                    <include name="**/Test*.java"/>
+                    <include name="**/*Test.java"/>
+                    <include name="**/*Test*.java"/>
+                    <exclude name="**/*Abstract*.java"/>
+                </fileset>
+                <formatter type="xml"/>
+            </batchtest>
+            <!--<fail if="junit.failure" message="There were test failures."/>-->
+        </junit>
+    </target>
+
+    <target name="report">
+        <java classname="org.scova.reporter.html.HtmlReport">
+
+            <arg value="${project.output.folder}"/>
+            <classpath>
+                <path refid="dep.classpath"/>
+            </classpath>
+        </java>
+    </target>
+
+    
+    <target name="all" depends="instrument-all, run-batch, report"/>
+
+</project>

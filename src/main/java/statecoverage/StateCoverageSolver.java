@@ -1,12 +1,12 @@
-package org.scova.statecoverage;
+package statecoverage;
 
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-import org.scova.statecoverage.StateCoverageResult;
-import org.scova.statecoverage.TestRecord;
-import org.scova.statecoverage.TestRegistry;
+import statecoverage.StateCoverageResult;
+import statecoverage.TestRecord;
+import statecoverage.TestRegistry;
 
 
 public class StateCoverageSolver {
