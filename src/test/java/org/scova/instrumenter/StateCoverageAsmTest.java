@@ -48,9 +48,9 @@ public class StateCoverageAsmTest {
 	private ClassNode result = null;
 	@Before
 	public void setUp() {
-		result = instrumentAndReadClass("bin/org/scova/instrumenter/SampleClass.class");
-//		instrumentClass("bin/org/scova/instrumenter/SampleClass.class");
-//		result = readClass("bin/org/scova/instrumenter/SampleClass.class");
+		result = instrumentAndReadClass("target/test-classes/org/scova/instrumenter/SampleClass.class");
+//		instrumentClass("target/test-classes/org/scova/instrumenter/SampleClass.class");
+//		result = readClass("target/test-classes/org/scova/instrumenter/SampleClass.class");
 	}
 	
 	private ClassNode instrumentAndReadClass(String pathToClass) {
@@ -561,7 +561,7 @@ public class StateCoverageAsmTest {
 				"    RETURN\n"
 			    );
 		
-	    ClassNode classNode = instrumentAndReadClass("bin/org/scova/instrumenter/SampleClass$DerivativeStructure.class");
+	    ClassNode classNode = instrumentAndReadClass("target/test-classes/org/scova/instrumenter/SampleClass$DerivativeStructure.class");
 	    assertInstrumentationOf(classNode, 2, "getPartialDerivative", 18,
 	    	    "    LDC \"org/scova/instrumenter/SampleClass$DerivativeStructure.getPartialDerivative([I)D\"\n" +
 	    	    "    INVOKESTATIC statecoverage/StateCoverage.ClearDependenciesOf (Ljava/lang/String;)V\n" +
@@ -609,7 +609,7 @@ public class StateCoverageAsmTest {
 			    "    INVOKESTATIC statecoverage/StateCoverage.EndTestCapture (Ljava/lang/String;)V\n" +
 				"    RETURN\n");
 
-	    ClassNode classNode = instrumentAndReadClass("bin/org/scova/instrumenter/SampleClass$CommandLine.class");
+	    ClassNode classNode = instrumentAndReadClass("target/test-classes/org/scova/instrumenter/SampleClass$CommandLine.class");
 	    assertInstrumentationOf(classNode, 1, "hasOption", 13,
 	    	    "    LDC \"org/scova/instrumenter/SampleClass$CommandLine.hasOption(Ljava/lang/String;)Z\"\n" +
 	    	    "    INVOKESTATIC statecoverage/StateCoverage.ClearDependenciesOf (Ljava/lang/String;)V\n" +
@@ -665,14 +665,14 @@ public class StateCoverageAsmTest {
 	@Test
 	public void testAbstract() {
 		
-	    ClassNode classNode = instrumentAndReadClass("bin/org/scova/instrumenter/SampleClass$Abstract.class");
+	    ClassNode classNode = instrumentAndReadClass("target/test-classes/org/scova/instrumenter/SampleClass$Abstract.class");
 	    assertInstrumentationOf(classNode, 1, "abstractMethod", 0, "");
 	}
 	
 	@Test
 	public void testAnonymousInnerClassUsingParameter() {
 		
-	    ClassNode classNode = instrumentAndReadClass("bin/org/scova/instrumenter/SampleClass$TokenMatchers$1Test.class");
+	    ClassNode classNode = instrumentAndReadClass("target/test-classes/org/scova/instrumenter/SampleClass$TokenMatchers$1Test.class");
 	    assertInstrumentationOf(classNode, 0, "<init>", 9, 
 	    "    ALOAD 0\n" +
 	    "    ALOAD 1\n" +
