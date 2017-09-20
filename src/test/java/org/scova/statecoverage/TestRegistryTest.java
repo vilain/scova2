@@ -1,9 +1,8 @@
-package statecoverage;
+package org.scova.statecoverage;
 
 import static org.junit.Assert.*;
 import org.junit.Test;
-
-import statecoverage.TestRegistry;
+import org.scova.statecoverage.TestRegistry;
 
 public class TestRegistryTest {
 

@@ -1,16 +1,16 @@
-package statecoverage;
+package org.scova.statecoverage;
 
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 
-import statecoverage.InfluenceMap;
-import statecoverage.StateCoverage;
-import statecoverage.StateCoverageResult;
-import statecoverage.StateCoverageSolver;
-import statecoverage.TestRecord;
-import statecoverage.TestRegistry;
-import statecoverage.Utils;
+import org.scova.statecoverage.InfluenceMap;
+import org.scova.statecoverage.StateCoverage;
+import org.scova.statecoverage.StateCoverageResult;
+import org.scova.statecoverage.StateCoverageSolver;
+import org.scova.statecoverage.TestRecord;
+import org.scova.statecoverage.TestRegistry;
+import org.scova.statecoverage.Utils;
 
 public class StateCoverage {
 	

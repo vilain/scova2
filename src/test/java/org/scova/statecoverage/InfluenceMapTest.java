@@ -1,12 +1,11 @@
-package statecoverage;
+package org.scova.statecoverage;
 
 import static org.junit.Assert.*;
 
 import java.util.Set;
 
 import org.junit.Test;
-
-import statecoverage.InfluenceMap;
+import org.scova.statecoverage.InfluenceMap;
 
 public class InfluenceMapTest {
 

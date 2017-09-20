@@ -1,4 +1,4 @@
-package statecoverage;
+package org.scova.statecoverage;
 
 import java.io.File;
 import java.io.FileWriter;

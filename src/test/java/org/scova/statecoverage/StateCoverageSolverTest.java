@@ -1,14 +1,13 @@
-package statecoverage;
+package org.scova.statecoverage;
 
 import static org.junit.Assert.*;
 
 import org.junit.Before;
 import org.junit.Test;
-
-import statecoverage.StateCoverageResult;
-import statecoverage.StateCoverageSolver;
-import statecoverage.TestRecord;
-import statecoverage.TestRegistry;
+import org.scova.statecoverage.StateCoverageResult;
+import org.scova.statecoverage.StateCoverageSolver;
+import org.scova.statecoverage.TestRecord;
+import org.scova.statecoverage.TestRegistry;
 
 public class StateCoverageSolverTest {
 	

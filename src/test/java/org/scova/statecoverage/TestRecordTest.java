@@ -1,4 +1,4 @@
-package statecoverage;
+package org.scova.statecoverage;
 
 import static org.junit.Assert.*;
 
@@ -6,8 +6,7 @@ import java.util.List;
 import java.util.Set;
 
 import org.junit.Test;
-
-import statecoverage.TestRecord;
+import org.scova.statecoverage.TestRecord;
 
 public class TestRecordTest {
 

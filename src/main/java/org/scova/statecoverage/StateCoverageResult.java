@@ -1,4 +1,4 @@
-package statecoverage;
+package org.scova.statecoverage;
 
 import java.util.HashSet;
 import java.util.Set;
